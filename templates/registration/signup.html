@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        <h2 class="header">회원가입 페이지</h2>
+    <div>
+        <form method="post", action="{% url 'users:signup' %}">
+            {% csrf_token %}
+                {% for input in form %}
+                    <div class="signup_form">
+                        <label class="signup_label" for="{{ input.id_for_label }}">{{ input.label }}</label>
+                        <div class="signup_input">{{ input }} {{ input.help_text }}</div>
+                    </div>
+                {% endfor %}
+        <div>
+            <button type="submit" class="confirm_button">회원가입</button>
+        </div>
+        </form>
+        {{ err }}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+{#<div class="addpage_container">#}
+    <ul class="movie_list">
+    <form>
+        <li class="movie_item">
+            {% for movie in total_movie_list %}
+                <dl>
+{#                    <dd><img class=“image” style="width:200px;" src="{% media '{{ movie.id }}.jpg' %}"></dd>#}
+{#                    <dd><img class=“image” style="width:200px;" src="{% static '{{ MEDIA_URL }}{{ movie.id }}.jpg' %}"></dd>#}
+{#                    <dd><img class=“image” style="width:200px;" src="{{ MEDIA_URL }} {{ movie.id }}.jpg"></dd>#}
+                    <dd><img class=“image” style="width:200px;height:300px;" src="{% static 'media/' %}{{ movie.id }}.jpg"></dd>
+{#                    <dd><a href="{% 'media/{{ movie.id }}.jpg' %}" class=“image” style="width:200px;"></a></dd>#}
+
+                    <dd>{{ movie.title }}</dd>
+                    <dd>{{ movie.year }}</dd>
+                    <dd>{{ movie.director }}</dd>
+                    <dd><input type="range" class="scores_range" width="300px" name="scores" value="0" min="0" max="10" step="1" oninput="document.getElementById('{{movie.id}}').innerHTML=this.value;"><span size="2px" id = "{{movie.id}}"></span></dd>
+{#                <dd>#}
+{#                    <select id="example">#}
+{#                        <option value="1">1</option>#}
+{#                        <option value="2">2</option>#}
+{#                        <option value="3">3</option>#}
+{#                        <option value="4">4</option>#}
+{#                        <option value="5">5</option>#}
+{#                    </select>#}
+{#                </dd>#}
+                </dl>
+            {% endfor %}
+        </li>
+    </form>
+    </ul>
+
+{#    <table>#}
+{#        <tbody>#}
+{#        {% for movie in total_movie_list %}#}
+{#        <tr>#}
+{#            <td>{{ movie.title }}</td>#}
+{#            <td>{{ movie.year }}</td>#}
+{#            <td>{{ movie.director }}</td>#}
+{#        </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+
+{#</div>#}
+{#<ul class="movies_container">#}
+{#   <li class="movie_item">#}
+{#       <dl>#}
+{#           <dd><img id="img1"></dd>#}
+{#           <dd id="title1"></dd>#}
+{#           <dd id="year1"></dd>#}
+{#           <dd id="director1"></dd>#}
+{#           <dd id="genre"></dd>#}
+{#       </dl>#}
+{#   </li>#}
+{#</ul>#}
+{% endblock %}

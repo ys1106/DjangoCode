@@ -1,0 +1,30 @@
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: C:\Users\yousu\Anaconda3\envs\TensorFlow
+
+  added / updated specs: 
+    - testpath
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    openssl-1.1.1d             |       hfa6e2cd_0         4.7 MB  conda-forge
+    testpath-0.4.4             |             py_0          85 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         4.8 MB
+
+The following packages will be UPDATED:
+
+    openssl:  1.1.1c-hfa6e2cd_0 conda-forge --> 1.1.1d-hfa6e2cd_0 conda-forge
+    testpath: 0.4.2-py36_0                  --> 0.4.4-py_0        conda-forge
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done

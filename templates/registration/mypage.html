@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<div class="mypage_container">
+    <div class="mylist_container">
+        <h2>My Movie List</h2>
+        <div class="mylist_movies">
+            <ul class="my_movie">
+{#                <img class=“image” style="width:200px;"  src="{% static 'image/movie1.jpg' %}">#}
+
+                    <li class="mylist_item">
+                        {% for usermovie in user_movie_list %}
+                            <dl>
+{#                                <dd><a href="{% static 'media/{{ usermovie.id }}.jpg' %}" class=“image” style="width:200px;"></a></dd>#}
+                                <dd><img class=“mylist_image” style="width:200px; height:320px" src="{% static 'media/' %}{{ usermovie.id }}.jpg"></dd>
+{#                                <dd class="mylist_title">{{ usermovie.title }}</dd>#}
+{#                                <dd>{{ usermovie.year }}</dd>#}
+{#                                <dd>{{ usermovie.director }}</dd>#}
+                            </dl>
+                        {% endfor %}
+                    </li>
+
+            </ul>
+            <div class="my_movie">
+{#                <img class=“image” style="width:200px;"  src="{% static 'image/movie2.jpg' %}">#}
+            </div>
+        </div>
+    </div>
+
+    <div class="recom_container">
+        <h2>My Recommended List</h2>
+        <div class="recom_movies_container">
+            <div class="recom_movie">
+{#                <img class=“image” style="width:200px;" src="{% static 'image/movie3.jpg' %}">#}
+                <ul class="my_movie">
+{#                <img class=“image” style="width:200px;"  src="{% static 'image/movie1.jpg' %}">#}
+
+                    <li class="mylist_item">
+                        {% for recommovie in recom_movie_list %}
+                            <dl>
+{#                                <dd><a href="{% static 'media/{{ usermovie.id }}.jpg' %}" class=“image” style="width:200px;"></a></dd>#}
+                                <dd><img class=“mylist_image” style="width:200px; height:320px" src="{% static 'media/' %}{{ recommovie.id }}.jpg"></dd>
+{#                                <dd class="mylist_title">{{ usermovie.title }}</dd>#}
+{#                                <dd>{{ usermovie.year }}</dd>#}
+{#                                <dd>{{ usermovie.director }}</dd>#}
+                            </dl>
+                        {% endfor %}
+                    </li>
+
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mypage_button_container">
+{#        <button class="plus_button"><a href="{% url 'users:mypageadd' %}" class="for_add">추가하기</a></button>#}
+        <button class="recom_button">추천받기</button>
+    </div>
+</div>
+{% endblock %}

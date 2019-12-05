@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load staticfiles %}
+    <video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+     <source src="{% static 'image/movie.mp4' %}" type="video/mp4">
+{#        <source src="movie.webm" type="video/webm">#}
+{#        Sorry, your browser does not support HTML5 video.#}
+    </video>
+    <div class="main_center">
+
+        <h2 class="mainpage_name">
+            {% if user.is_authenticated %}
+{#                {{ user }}'s SNACK#}
+                <h1 class="for_mypage"><a href="{% url 'users:mypage' %}" class="for_mypage"><i class="fas fa-user" style="font-size:30px;"></i> 마이페이지</a></h1>
+{#                <h3 class="for_keyword"><a href="{%v url 'users:' %}" class="for_keyword"><i class="fas fa-user" style="font-size:20px;"></i>  키워드페이지</a></h3>#}
+            {% else %}
+{#                SNACK Main Page#}
+                <h3 class="for_login"><a href="{% url 'users:login' %}" class="for_login"><i class="fas fa-sign-in-alt" style="font-size:20px;"></i>  로그인</a></h3>
+                <h3 class="for_signup"><a href="{% url 'users:signup' %}" class="for_signup"><i class="fas fa-user-plus" style="font-size:20px;"></i>  회원가입</a></h3>
+
+            {% endif %}
+
+        </h2>
+    </div>
+
+{#            <div class="container_center">#}
+{#            {% if user.is_active %}#}
+{##}
+{#            {% else %}#}
+{##}
+{#            {% endif %}#}
+{##}
+{#    </div>#}
+
+{% endblock %}

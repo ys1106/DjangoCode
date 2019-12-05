@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+    <h2 class="header"> 로그인 페이지 <small>Login page</small></h2>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+                {% for input in form %}
+                    <div class="loginform">
+                        <label class="loginform_label" for="{{ input.id_for_label }}">{{ input.label }}</label> {# 로그인폼에서 필드마다 설정한 라벨 출력 #}
+                        {{ input }}
+                    </div>
+                {% endfor %}
+        <button type="submit" class="confirm_button">로그인</button>
+        </form>
+        <br>
+        {{ err }}
+    </div>
+
+    </div>
+{% endblock %}

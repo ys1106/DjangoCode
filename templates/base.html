@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SNACK</title>
+
+    {% load staticfiles %}
+{#    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css" />#}
+    <link rel="stylesheet" href="{% static 'base.css' %}?ver=1" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<body>
+<nav>
+    <div class="nav_container">
+        <div class="nav_header">
+            <a class="nav_name" href="{% url 'index' %}"><img class=“image” style="width:270px;"  src="{% static 'image/logo_edit.png' %}"></a>
+        </div>
+        <div class="nav_right">
+            <ul>
+                {# 상단 오른쪽에 들어갈 아이콘들 #}
+                {% if user.is_active %}  {# 로그인 되어 있으면 #}
+                {# <li><a href="{% url 'curriculum:mypage' %}"><span class="fas fa-user-circle"></span>{{ user.username }}</a></li>  {# 사용자 이름을 클릭하면 curriculum앱의 mypage url로 연결 #}
+                    <li><a href="{% url 'users:logout' %}"><span class="fas fa-sign-out-alt"></span>로그아웃</a></li>  {# 로그아웃 누르면 user앱의 logout url로 연결 #}
+{#                    <li><a href="{% url 'users:mypage' %}"><span class=""></span>마이페이지</a></li>  #}
+                {% else %}  {# 로그인 되어 있지 않으면 #}
+{#                    <li><a href="{% url 'users:signup' %}">회원가입</a></li>#}
+{#                    <li><a href="{% url 'admin:index' %}"><i class="fas fa-unlock-alt"></i> Admin</a></li>  {# Admin 클릭하면 관리자 페이지로 이동 #}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>
